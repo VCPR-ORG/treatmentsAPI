@@ -1,7 +1,7 @@
-name: Split OAS, generate docs and publish to GH Pages
+name: generate docs, dereference JSON, and publish to GH Pages
 on:
   workflow_dispatch:
-  push: #when changes are pushed to default branch for the file src/openapi.yml
+  push:
     branches:
       - develop
     paths:
