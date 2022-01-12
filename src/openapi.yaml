@@ -122,6 +122,10 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/Prescription'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /api/protocols/prescriptions/{id}:
     get:
       operationId: getPrescription
@@ -153,6 +157,10 @@ paths:
               schema:
                 type: string
                 format: binary
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
   /api/labels/inserts/{lxId}:
     get:
       operationId: getPackageInsert
@@ -307,7 +315,7 @@ paths:
           $ref: '#/components/responses/Unauthorized'
   /api/prescriptions/{rxId}/cases:
     get:
-      operationId: myCases
+      operationId: myRxCases
       tags:
         - Case
       summary: renew token
@@ -359,7 +367,7 @@ paths:
         '400':
           $ref: '#/components/responses/BadRequest'
     get:
-      operationId: myCases
+      operationId: myTasks
       tags:
         - Case
       summary: renew token
@@ -690,25 +698,6 @@ components:
           format: html
           default: ''
           example: <p>overcrowding may be contributing to issues</p>
-    Comment:
-      type: object
-      required:
-        - comment
-      properties:
-        userId:
-          description: set null or zero if User wishes to be anonymous
-          type: integer
-          example: 1
-          default: null
-        public:
-          description: if false, comment is private to site managers
-          type: boolean
-          example: false
-          default: false
-        comment:
-          description: user's comment 
-          type: string
-          example: some comment
     Degree:
       description: an academic degree qualifying a User as a veterinarian
       type: object
