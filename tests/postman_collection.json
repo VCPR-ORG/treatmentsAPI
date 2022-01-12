@@ -514,7 +514,7 @@
 									"//\r",
 									"function buildModels(object){\r",
 									"  let models = [];\r",
-									"  if(pm.environment.get('env-debug' ) > 2){\r",
+									"  if(pm.environment.get('env-debug' ) > 5){\r",
 									"    console.log(object)\r",
 									"  }\r",
 									"  if(object.type && object.type.toLowerCase() == 'object'){\r",
